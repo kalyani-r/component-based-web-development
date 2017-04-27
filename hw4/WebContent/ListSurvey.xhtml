@@ -1,0 +1,91 @@
+<!-- This page will display the list of surveys -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<h:outputStylesheet library="css" name="table-style.css"></h:outputStylesheet>
+		<title> List of Surveys</title>
+	</h:head>
+	<h:body>
+	<center>
+	<h1>List of Surveys</h1>
+	<h:form>
+		<p:dataTable value="#{studentInfo.studentList}" var="y"
+		styleClass="student-table"
+    	headerClass="student-table-header"
+    	rowClasses="student-table-odd-row,student-table-even-row">
+  		<p:column>
+  			<f:facet name="header">First Name</f:facet>
+    			<h:outputText value="#{y.fname}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Last Name</f:facet>
+  			<h:outputText value="#{y.lname}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Address</f:facet>
+  			<h:outputText value="#{y.address}" />
+    	</p:column>
+		<p:column>
+  			<f:facet name="header">Zip</f:facet>
+  			<h:outputText value="#{y.zip}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">City</f:facet>
+  			<h:outputText value="#{y.city}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">State</f:facet>
+  			<h:outputText value="#{y.state}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Telephone</f:facet>
+  			<h:outputText value="#{y.telephone}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Email</f:facet>
+  			<h:outputText value="#{y.email}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Semester Start Date</f:facet>
+  			<h:outputText value="#{y.sem}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Date of Survey</f:facet>
+  			<h:outputText value="#{y.date}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Checkboxes</f:facet>
+  			<h:outputText value="#{y.checkbox}" />
+    	</p:column>
+    	
+    	<p:column>
+  			<f:facet name="header">Radio</f:facet>
+  			<h:outputText value="#{y.radio}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Raffle</f:facet>
+  			<h:outputText value="#{y.raffle}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Menu</f:facet>
+    		<h:outputText value="#{y.menu}" />
+    	</p:column>
+    	<p:column>
+  			<f:facet name="header">Comments</f:facet>
+    		<h:outputText value="#{y.comments}" />
+    	</p:column>
+		</p:dataTable>
+	</h:form>
+	</center>
+	</h:body>
+</html>
+
+<!-- KALYANI RACHAKONDA -->

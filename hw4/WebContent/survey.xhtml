@@ -1,0 +1,211 @@
+<!-- collects the user data into this form -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+<title> CS Department Survey Page </title>
+<style>
+.centered {
+    text-align: left;
+}
+h4{
+color:green;
+text-shadow: 15px 15px 20px dimgrey;}
+body{
+background-color:#e6ffff;
+}
+</style>
+</h:head>
+<h:body>
+<h2 style="color:#458B00"> KALYANI RACHAKONDA</h2>
+<h:link value="HOME PAGE" outcome="welcome"></h:link>
+<center>
+<h1 style="color:#458B00">CS Department Survey Form </h1>
+<p style="color:#66CD00"> Please fill out this survey form </p>
+</center>
+<h:form id="form">
+<center>
+<table border="1" cellpadding="5" cellspacing="0">
+<tr>
+<td><p:outputLabel value="First Name*:"></p:outputLabel>
+<br />
+<p:inputText id="fname" value="#{studentInfo.fname}"
+			required="true"
+			requiredMessage= "Please enter your First Name"
+			validatorMessage="Please enter only letters">
+	<f:validateLength maximum="15"></f:validateLength>
+	<f:validateRegex pattern="[a-zA-Z]+"></f:validateRegex>
+	</p:inputText>
+<br />
+<br />
+</td>
+
+<td><p:outputLabel value="Last Name*:"></p:outputLabel>
+<br />
+<p:inputText id="lname" value="#{studentInfo.lname}"
+			required="true"
+			requiredMessage="Please enter your Last Name" 
+			validatorMessage="Please enter only letters">
+
+	<f:validateLength maximum="15"></f:validateLength>
+	<f:validateRegex pattern="[a-zA-Z]+"></f:validateRegex>			
+</p:inputText>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="Street Address*:"></p:outputLabel>
+<br />
+<p:inputText id="address" value="#{studentInfo.address}"	
+			required="true"
+			requiredMessage="Please enter your Street Address" 
+			validatorMessage="Enter only letters or special characters like '-' '/'">
+	<f:validateLength maximum="30"></f:validateLength>
+    <f:validateRegex pattern="^[a-zA-Z\s_0-9]+\b\s*$"></f:validateRegex>			
+</p:inputText>
+<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><p:outputLabel value="Zip Code*:"></p:outputLabel>
+<br />
+<p:inputText id="zip" value="#{studentInfo.zip}"
+			required="true"
+			requiredMessage="Please enter the Zip Code" 
+			validatorMessage="Zip code must be exactly a 5-digit number">
+	<f:validateLength minimum="5" maximum="5"></f:validateLength>
+	<f:validateRegex pattern="[0-9]+"></f:validateRegex>
+	<f:ajax render="city state"></f:ajax>
+</p:inputText>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="City:"></p:outputLabel>
+<br />
+<p:inputText id="city" value="#{studentInfo.city}"
+			required="true"
+			requiredMessage="Please enter the City"
+			validatorMessage = "Please enter a valid city name."> </p:inputText>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="State:"></p:outputLabel>
+<br />
+<p:inputText id="state" value="#{studentInfo.state}"
+			required="true"
+			requiredMessage="Please enter the State" 
+			validatorMessage = "Please enter a valid state name."> </p:inputText>
+<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><p:outputLabel value="Telephone:"></p:outputLabel>
+<br/>
+<p:inputMask mask="(999) 999-9999" id="telephone" 
+			value="#{studentInfo.telephone}"
+			required="true"
+			requiredMessage="Please enter a valid phone number">
+</p:inputMask>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="E-mail:"></p:outputLabel>
+<br />
+<p:inputText id="email" value="#{studentInfo.email}"
+			required="true"
+			requiredMessage="Please enter your email address"
+			validatorMessage="Please enter a valid email address">
+	<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"></f:validateRegex>			
+</p:inputText>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="Start date of Semester:"></p:outputLabel>
+<br />
+<p:calendar id="sem" value="#{studentInfo.sem}"
+			required="true"
+			requiredMessage="Please enter the Semester Start Date">		
+</p:calendar>
+<br />
+<br />
+</td>
+</tr>
+<tr>
+<td><p:outputLabel value="Date of Survey:" for="date"></p:outputLabel>
+<br />
+<p:calendar id="date" value="#{studentInfo.date}"
+			required="true"
+			requiredMessage="Please enter the Date of Survey">		
+</p:calendar>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="Most liked about campus:"></p:outputLabel>
+<br />
+<p:selectManyCheckbox id= "checkbox" value="#{studentInfo.checkbox}" label="Likes">
+<f:selectItem itemValue="Student" itemLabel="Students"></f:selectItem>
+<f:selectItem itemValue="Location" itemLabel="Location"></f:selectItem>
+<f:selectItem itemValue="Campus" itemLabel="Campus"></f:selectItem>
+<f:selectItem itemValue="Atmosphere" itemLabel="Atmosphere"></f:selectItem>
+<f:selectItem itemValue="Dorm Rooms" itemLabel="Dorm Rooms"></f:selectItem>
+<f:selectItem itemValue="Sports" itemLabel="Sports"></f:selectItem>
+</p:selectManyCheckbox></td>
+<td><p:outputLabel value="Reason for interest:"></p:outputLabel>
+<br />
+<p:selectOneRadio id="radio" value="#{studentInfo.radio}">
+<f:selectItem itemValue="Friend" itemLabel="Friends"></f:selectItem>
+<f:selectItem itemValue="Telephone" itemLabel="Television"></f:selectItem>
+<f:selectItem itemValue="Internet" itemLabel="Internet"></f:selectItem>
+<f:selectItem itemValue="Other" itemLabel="Other"></f:selectItem>
+</p:selectOneRadio></td>
+</tr>
+<tr>
+<td><p:outputLabel value="Raffle:"></p:outputLabel>
+<br />
+<p:inputText id="raffle" value="#{studentInfo.raffle}"
+			required="true"
+			requiredMessage="Please enter atleast 10 values"
+			validatorMessage="Please enter 10 values">
+	<f:validateLength minimum="19"></f:validateLength>			
+</p:inputText>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="School Recommentation:" for="menu"></p:outputLabel>
+<br />
+<p:autoComplete id="menu" value="#{studentInfo.menu}"
+				completeMethod="#{studentInfo.completeDrop}"
+				forceSelection="true"
+				required="true"
+				requiredMessage="Please choose one of the items listed"/>
+<br />
+<br />
+</td>
+<td><p:outputLabel value="Comments:"></p:outputLabel>
+<br />
+<p:inputText id="comments" value="#{studentInfo.comments}"></p:inputText></td>
+</tr>
+<tr>
+<td colspan="3">
+<p:messages style="color:red" ></p:messages>
+</td>
+</tr>
+<tr>
+<td colspan="3" align="center"><p:commandButton value="Submit" action="#{studentInfo.saveStudent}" ajax="false"></p:commandButton>&nbsp;<p:commandButton value="Cancel" update="form" process="@this" actionListener="#{studentInfo.reset}" immediate="true"></p:commandButton>
+</td>
+</tr>
+</table>
+</center>
+</h:form>
+</h:body>
+</html>
+
+<!-- KALYANI RACHAKONDA -->

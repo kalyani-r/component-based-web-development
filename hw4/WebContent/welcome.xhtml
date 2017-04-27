@@ -1,0 +1,37 @@
+<!-- From this page, user will be redirected to other pages -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<head>
+<title>Welcome!</title>
+</head>
+<h:body>
+<img src="GMU_Logo.jpg" alt="GMU photo" style="width:10%; height:5%;"/>
+
+<h1> KALYANI RACHAKONDA</h1>
+<img src="mason.jpg"  style="width:60%; height:60%;"/>
+	<h1 align="center"> Welcome to the survey! </h1>	
+	<h:form>
+	<center>
+	<h3>Take a Survey:</h3>
+ 	<p:commandButton action="#{studentInfo.surveyForm}" value="Take a survey" ajax="false"/> 
+ 	<br />
+ 	<br />
+ 	<h3>Survey Records:</h3>
+ 	<p:commandButton action="#{studentInfo.surveyList}" value="Browse Surveys" ajax="false"/> 
+ 	<br />
+ 	<br />
+ 	<h3>Search Records:</h3>
+ 	<p:commandButton action="#{searchInfo.searchSurvey}" value="Search Surveys" ajax="false"/> 
+	</center>
+	</h:form>
+</h:body> 
+</html>
+
+<!-- KALYANI RACHAKONDA -->

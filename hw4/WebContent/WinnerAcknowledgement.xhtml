@@ -1,0 +1,31 @@
+<!-- Page to be displayed when mean is more than 90 -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+	<title> Winner Page</title>
+	</h:head>
+	<h:body>
+	<h:link value="HOME PAGE" outcome="welcome"></h:link>
+	<center>
+	<h1>Thank you for taking the survey !!</h1>
+	<h2>Congratulations #{studentInfo.fname},You won two movie tickets!!</h2>
+	<table border="1" cellpadding="5" cellspacing="0">
+	<tr>
+	<td>Mean: #{studentInfo.mean} </td>
+	<td>Standard Deviation: #{studentInfo.sd} </td>
+	<td>Calculated by:<br />#{studentInfo.fname} #{studentInfo.lname}</td>
+	</tr>
+	</table>
+	<h3>Entered data is successfully saved on the server.</h3>
+	</center>
+	</h:body>
+</html>
+
+<!-- KALYANI RACHAKONDA -->
